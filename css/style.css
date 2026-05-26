@@ -1,0 +1,313 @@
+/* ==============================
+   CUSTOM STYLES — Nail Studio
+   ============================== */
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(245, 245, 247, 0.15);
+  color: #fff;
+}
+
+/* --- Safe Area --- */
+.safe-area {
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+}
+
+/* ==============================
+   BOOKING OVERLAY
+   ============================== */
+
+.booking-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.booking-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Step transitions --- */
+.booking-step {
+  animation: stepIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.booking-step.exit {
+  animation: stepOut 0.25s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes stepOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+}
+
+/* --- Calendar --- */
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.calendar-day:hover:not(.disabled):not(.padding) {
+  background: rgba(255, 255, 255, 0.08);
+}
+.calendar-day.selected {
+  background: #f5f5f7 !important;
+  color: #0a0a0a !important;
+  font-weight: 600;
+}
+.calendar-day.today:not(.selected):not(.disabled) {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.calendar-day.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.calendar-day.padding {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Service cards --- */
+.service-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.service-card:active {
+  transform: scale(0.98);
+}
+.service-card.selected {
+  border-color: rgba(245, 245, 247, 0.4);
+  background: rgba(245, 245, 247, 0.06);
+}
+.service-card .check {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.service-card.selected .check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Time slots --- */
+.time-slot {
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.time-slot:active:not(.disabled) {
+  transform: scale(0.96);
+}
+.time-slot.selected {
+  background: #f5f5f7 !important;
+  color: #0a0a0a !important;
+  border-color: #f5f5f7 !important;
+  font-weight: 600;
+}
+.time-slot.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* --- Success animation --- */
+.success-checkmark {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  position: relative;
+}
+.success-checkmark .circle {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  stroke: #f5f5f7;
+  stroke-width: 2;
+  fill: none;
+  animation: drawCircle 0.6s ease forwards;
+}
+.success-checkmark .check {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  stroke: #f5f5f7;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: drawCheck 0.4s 0.5s ease forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Toast --- */
+.toast {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Form inputs --- */
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #f5f5f7;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.25s ease;
+}
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.input-field:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+.input-field.error {
+  border-color: rgba(255, 100, 100, 0.5);
+}
+
+/* --- Loading spinner --- */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(10, 10, 10, 0.15);
+  border-top-color: #0a0a0a;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+.spinner-light {
+  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: #f5f5f7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Month navigation --- */
+.month-nav {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-tap-highlight-color: transparent;
+}
+.month-nav:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
+}
+.month-nav:active {
+  transform: scale(0.9);
+}
+
+/* --- Fade-in reveal (landing) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Leaflet dark overrides --- */
+.leaflet-container {
+  background: #0d0d0d !important;
+}
+#mapContainer .leaflet-control-attribution {
+  display: none !important;
+}
+.leaflet-marker-icon {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+/* --- Image loading --- */
+img {
+  background: #1a1a1a;
+  color: transparent;
+}
+
+/* --- Responsive tweaks --- */
+@media (min-width: 768px) {
+  .booking-overlay .safe-area {
+    max-width: 480px;
+    margin: 0 auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (min-width: 1024px) {
+  .booking-overlay .safe-area {
+    max-width: 520px;
+  }
+}
