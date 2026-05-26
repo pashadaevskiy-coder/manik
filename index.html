@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nail Studio — Премиальный маникюр в Санкт-Петербурге</title>
+  <meta name="description" content="Запишись онлайн на премиальный маникюр. Стерильно, качественно, с душой. Услуги: маникюр, покрытие, дизайн, педикюр." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nail Studio — Премиальный маникюр" />
+  <meta property="og:description" content="Запишись онлайн на премиальный маникюр. Стерильно, качественно, с душой." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+          },
+          borderRadius: {
+            '2xl': '1rem',
+            '3xl': '1.5rem',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#0a0a0a] text-[#f5f5f7] font-sans antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.05]">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <span class="text-lg font-semibold tracking-tight">Nail Studio</span>
+      <button id="openBooking" class="px-5 py-2 text-sm font-medium text-[#0a0a0a] bg-[#f5f5f7] rounded-full hover:opacity-90 transition-all duration-300">
+        Записаться
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ LANDING PAGE ============ -->
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-black">
+      <div class="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#111]"></div>
+      <div class="relative z-10 w-full px-5 pt-24 pb-16">
+        <div class="max-w-2xl mx-auto">
+          <span class="inline-block px-3 py-1 mb-5 text-xs font-medium tracking-widest uppercase text-white/60 border border-white/10 rounded-full">Premium Nail Studio</span>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-4">
+            Твои идеальные<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">ногти</span>
+          </h1>
+          <p class="text-base sm:text-lg text-white/60 max-w-md mb-8 leading-relaxed">
+            Запишись на маникюр онлайн за 2 минуты. Стерильно, качественно, с душой.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 mb-10">
+            <button class="openBookingBtn px-8 py-4 text-sm font-semibold text-[#0a0a0a] bg-[#f5f5f7] rounded-2xl hover:opacity-90 transition-all duration-300 active:scale-95">
+              Записаться онлайн
+            </button>
+            <a href="#portfolio" class="px-6 py-4 text-sm font-medium text-white/70 border border-white/10 rounded-2xl hover:bg-white/5 transition-all duration-300">
+              Смотреть работы
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-6 text-sm text-white/40">
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-green-400/60 rounded-full"></span>
+              500+ довольных клиентов
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-green-400/60 rounded-full"></span>
+              Стерилизация инструментов
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-green-400/60 rounded-full"></span>
+              Премиальные материалы
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-20 sm:py-28 px-5">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+          <span class="text-xs font-medium tracking-widest uppercase text-white/40">Портфолио</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 mb-3">Мои работы</h2>
+          <p class="text-white/40 text-sm max-w-md mx-auto">Каждая работа — это внимание к деталям и индивидуальный подход</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-1.webp" alt="Дизайн ногтей" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-2.webp" alt="Маникюр с дизайном" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-3.webp" alt="Укрепление ногтей" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-4.webp" alt="Педикюр" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-5.webp" alt="Красивый маникюр" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.03]">
+            <img src="img/portfolio-6.webp" alt="Премиум покрытие" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-20 sm:py-28 px-5 bg-[#0d0d0d]">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+          <span class="text-xs font-medium tracking-widest uppercase text-white/40">Услуги и цены</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 mb-3">Прайс-лист</h2>
+          <p class="text-white/40 text-sm max-w-md mx-auto">Прозрачные цены без скрытых доплат</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="1">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Маникюр с покрытием</h3>
+              <span class="text-sm font-semibold text-white/80">2 500₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Классический маникюр с покрытием гель-лаком</p>
+            <span class="text-xs text-white/30">~ 60 мин</span>
+          </div>
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="2">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Маникюр без покрытия</h3>
+              <span class="text-sm font-semibold text-white/80">1 800₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Классический или аппаратный маникюр без покрытия</p>
+            <span class="text-xs text-white/30">~ 40 мин</span>
+          </div>
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="3">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Укрепление ногтей</h3>
+              <span class="text-sm font-semibold text-white/80">1 000₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Укрепление ногтей акригелем или полигелем</p>
+            <span class="text-xs text-white/30">~ 20 мин</span>
+          </div>
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="4">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Наращивание</h3>
+              <span class="text-sm font-semibold text-white/80">3 500₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Наращивание ногтей любой длины и формы</p>
+            <span class="text-xs text-white/30">~ 90 мин</span>
+          </div>
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="5">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Дизайн ногтей</h3>
+              <span class="text-sm font-semibold text-white/80">от 500₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Любой дизайн: френч, градиент, слайдеры, стразы</p>
+            <span class="text-xs text-white/30">~ 30 мин</span>
+          </div>
+          <div class="service-card-landing p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer" data-service-id="6">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-semibold text-base">Педикюр</h3>
+              <span class="text-sm font-semibold text-white/80">3 000₽</span>
+            </div>
+            <p class="text-xs text-white/40 mb-3">Аппаратный педикюр с покрытием гель-лаком</p>
+            <span class="text-xs text-white/30">~ 60 мин</span>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <button class="openBookingBtn px-8 py-4 text-sm font-semibold text-[#0a0a0a] bg-[#f5f5f7] rounded-2xl hover:opacity-90 transition-all duration-300 active:scale-95">
+            Записаться на услугу
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 sm:py-28 px-5">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-white/[0.03] border border-white/[0.06]">
+            <img src="img/about.webp" alt="Мастер маникюра" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+          </div>
+          <div>
+            <span class="text-xs font-medium tracking-widest uppercase text-white/40">О мастере</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-2 mb-4">Анна — твой мастер маникюра</h2>
+            <div class="space-y-3 text-sm text-white/50 leading-relaxed">
+              <p>Более 7 лет опыта в beauty-индустрии. Работаю только с премиальными материалами: CND, OPI, Kodi.</p>
+              <p>Каждый инструмент проходит многоступенчатую стерилизацию в автоклаве. Твоя безопасность — мой приоритет.</p>
+              <p>К каждому клиенту — индивидуальный подход. Вместе подберём идеальный дизайн и форму ногтей.</p>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-6">
+              <div class="text-center">
+                <span class="block text-2xl font-bold text-white/90">7+</span>
+                <span class="text-xs text-white/30">лет опыта</span>
+              </div>
+              <div class="text-center">
+                <span class="block text-2xl font-bold text-white/90">500+</span>
+                <span class="text-xs text-white/30">клиентов</span>
+              </div>
+              <div class="text-center">
+                <span class="block text-2xl font-bold text-white/90">100%</span>
+                <span class="text-xs text-white/30">стерильность</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="py-20 sm:py-28 px-5 bg-[#0d0d0d]">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+          <span class="text-xs font-medium tracking-widest uppercase text-white/40">Отзывы</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 mb-3">Что говорят клиенты</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="flex gap-1 mb-3">
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+            </div>
+            <p class="text-sm text-white/50 leading-relaxed mb-4">«Лучший мастер в городе! Анна сделала идеальный френч, который держится уже третью неделю. Очень чисто, аккуратно и красиво.»</p>
+            <span class="text-sm font-medium text-white/70">— Елена</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="flex gap-1 mb-3">
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+            </div>
+            <p class="text-sm text-white/50 leading-relaxed mb-4">«Очень довольна результатом! Ногти выглядят дорого и ухоженно. Атмосфера в кабинете очень уютная. Обязательно приду ещё.»</p>
+            <span class="text-sm font-medium text-white/70">— Мария</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="flex gap-1 mb-3">
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+              <span class="text-[#d4a373] text-sm">&#9733;</span>
+            </div>
+            <p class="text-sm text-white/50 leading-relaxed mb-4">«Профессионально и красиво. Анна учла все пожелания, помогла с выбором дизайна. Результат превзошёл ожидания! Всем рекомендую.»</p>
+            <span class="text-sm font-medium text-white/70">— Анастасия</span>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <button id="showAllReviews" class="px-6 py-3 text-sm font-medium text-white/70 border border-white/[0.12] rounded-2xl hover:bg-white/[0.05] transition-all duration-300 active:scale-95">
+            Читать все отзывы
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS MODAL -->
+    <div id="reviewsModal" class="fixed inset-0 z-[150] bg-[#0a0a0a] opacity-0 invisible transition-all duration-400" style="transition: opacity 0.4s ease, visibility 0.4s ease;">
+      <div class="flex flex-col h-full max-w-[520px] mx-auto">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-white/[0.05] shrink-0">
+          <span class="text-sm font-medium">Все отзывы</span>
+          <button id="closeReviewsModal" class="text-white/50 hover:text-white/80 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div id="reviewsList" class="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="py-20 sm:py-28 px-5">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="text-xs font-medium tracking-widest uppercase text-white/40">Контакты</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 mb-8">Свяжись со мной</h2>
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300">
+            <svg class="w-5 h-5 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span class="text-sm text-white/70 font-medium">Instagram</span>
+          </a>
+          <a href="https://t.me" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300">
+            <svg class="w-5 h-5 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <span class="text-sm text-white/70 font-medium">Telegram</span>
+          </a>
+          <a href="https://wa.me" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-all duration-300">
+            <svg class="w-5 h-5 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span class="text-sm text-white/70 font-medium">WhatsApp</span>
+          </a>
+        </div>
+        <div class="text-sm text-white/40 space-y-1">
+          <p>Санкт-Петербург, м. Василеостровская</p>
+          <p>Ежедневно с 10:00 до 20:00</p>
+        </div>
+        <div class="mt-8 aspect-[2/1] sm:aspect-[3/1] rounded-2xl overflow-hidden border border-white/[0.06] cursor-pointer" id="mapWrapper">
+          <div id="mapContainer" class="w-full h-full"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-5 border-t border-white/[0.05]">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/30">
+        <span>&copy; 2026 Nail Studio. Все права защищены.</span>
+        <span>С любовью к красоте</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ============ BOOKING OVERLAY ============ -->
+  <div id="bookingOverlay" class="booking-overlay fixed inset-0 z-[100] bg-[#0a0a0a]">
+    <div class="flex flex-col h-full safe-area">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/[0.05] shrink-0">
+        <button id="bookingBack" class="flex items-center gap-1.5 text-sm text-white/50 hover:text-white/80 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+          Назад
+        </button>
+        <div class="flex gap-1.5">
+          <span class="step-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300"></span>
+          <span class="step-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300"></span>
+          <span class="step-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300"></span>
+          <span class="step-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300"></span>
+        </div>
+        <button id="bookingClose" class="text-white/50 hover:text-white/80 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div id="bookingContent" class="flex-1 overflow-y-auto px-5 py-6">
+        <!-- Step content rendered by JS -->
+      </div>
+
+      <!-- Bottom CTA -->
+      <div id="bookingFooter" class="px-5 py-4 border-t border-white/[0.05] shrink-0">
+        <button id="bookingCTA" class="w-full py-4 text-sm font-semibold text-[#0a0a0a] bg-[#f5f5f7] rounded-2xl hover:opacity-90 transition-all duration-300 active:scale-[0.98] disabled:opacity-30 disabled:cursor-not-allowed">
+          Продолжить
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TOAST ============ -->
+  <div id="toast" class="toast fixed top-20 left-1/2 -translate-x-1/2 z-[200] px-6 py-3 rounded-2xl bg-[#1c1c1e] border border-white/[0.08] text-sm text-white/80 shadow-2xl backdrop-blur-xl transition-all duration-500 pointer-events-none">
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- App -->
+  <script src="js/app.js"></script>
+</body>
+</html>
